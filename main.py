@@ -18,8 +18,8 @@ from boto.s3.connection import S3Connection
 load_dotenv(".env")
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
-app.config['SECRET_KEY'] = S3Connection(os.environ['APP_SECRET_KEY'])
+app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
+# app.config['SECRET_KEY'] = S3Connection(os.environ['APP_SECRET_KEY'])
 
 #print("something")
 # print(os.getenv("APP_SECRET_KEY"))
