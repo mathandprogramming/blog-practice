@@ -12,7 +12,7 @@ from forms import LoginForm, RegisterForm, CreatePostForm, CommentForm
 from flask_gravatar import Gravatar
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv("envcontainer.env")
+load_dotenv(".env")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
