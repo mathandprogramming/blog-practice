@@ -17,8 +17,8 @@ load_dotenv(".env")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
-print("something")
-print(os.getenv("APP_SECRET_KEY"))
+#print("something")
+#print(os.getenv("APP_SECRET_KEY"))
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
@@ -108,7 +108,7 @@ def register():
     if form.validate_on_submit():
 
         if User.query.filter_by(email=form.email.data).first():
-            print(User.query.filter_by(email=form.email.data).first())
+            #print(User.query.filter_by(email=form.email.data).first())
             #User already exists
             flash("You've already signed up with that email, log in instead!")
             return redirect(url_for('login'))
