@@ -10,14 +10,17 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import LoginForm, RegisterForm, CreatePostForm, CommentForm
 from flask_gravatar import Gravatar
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
+from boto.s3.connection import S3Connection
+
 
 # getting environment variables
 load_dotenv(".env")
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
-app.config['SECRET_KEY'] = "4a3d5ec429e32da79a5d4ffcb891a5b787386ebfbdad00a57808dbc79f52a4dd"
+app.config['SECRET_KEY'] = S3Connection(os.environ['APP_SECRET_KEY'])
+
 #print("something")
 # print(os.getenv("APP_SECRET_KEY"))
 ckeditor = CKEditor(app)
