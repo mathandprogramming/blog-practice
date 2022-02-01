@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, redirect, url_for, flash, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -9,9 +10,14 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import LoginForm, RegisterForm, CreatePostForm, CommentForm
 from flask_gravatar import Gravatar
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv("envcontainer.env")
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '4a3d5ec429e32da79a5d4ffcb891a5b787386ebfbdad00a57808dbc79f52a4dd'
+app.config['SECRET_KEY'] = os.getenv("APP_SECRET_KEY")
+print("something")
+print(os.getenv("APP_SECRET_KEY"))
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
