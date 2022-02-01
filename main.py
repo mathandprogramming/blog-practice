@@ -12,6 +12,7 @@ from forms import LoginForm, RegisterForm, CreatePostForm, CommentForm
 from flask_gravatar import Gravatar
 from dotenv import load_dotenv, find_dotenv
 
+# getting environment variables
 load_dotenv(".env")
 
 app = Flask(__name__)
